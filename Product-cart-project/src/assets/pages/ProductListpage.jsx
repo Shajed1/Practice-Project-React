@@ -1,10 +1,12 @@
+import MasterLayout from "../components/MasterLayout.jsx";
+import ProductList from "../components/ProductList.jsx";
 
 
 const ProductListpage = () => {
     return (
-        <div>
-            <h1>Product List Page</h1>
-        </div>
+        <MasterLayout>
+           <ProductList/>
+        </MasterLayout>
     );
 };
 
