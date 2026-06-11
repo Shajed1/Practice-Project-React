@@ -1,13 +1,16 @@
 import AppNavbar from "./AppNavbar.jsx";
-import AppFooter from "./AppFooter.jsx";
+import AppFooter from "../AppFooter.jsx";
+import {Toaster} from "react-hot-toast";
 
 
 const MasterLayout = (props) => {
     return (
         <div>
             <AppNavbar />
+
             {props.children}
             <AppFooter/>
+            <Toaster position="bottom-center"/>
         </div>
     );
 };

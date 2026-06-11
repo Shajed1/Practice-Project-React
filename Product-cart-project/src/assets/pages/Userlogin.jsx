@@ -1,10 +1,11 @@
 import MasterLayout from "../components/MasterLayout.jsx";
+import Loginform from "../components/Loginform.jsx";
 
 
 const userlogin = () => {
     return (
         <MasterLayout>
-            <h1>User Login Page</h1>
+           <Loginform/>
         </MasterLayout>
     );
 };

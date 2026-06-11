@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-import ValidationHelper from "../../utility/ValidationHelper.js";
+
 import FullscreenLoader from "./FullscreenLoader.jsx";
+import ValidationHelper from "../../utility/ValidationHelper.js";
+
 
 
 const ProductList = () => {
@@ -23,7 +25,13 @@ const ProductList = () => {
 
         })()
     },[])
-console.log(data)
+
+    const addtocart = async (id) => {
+        let res=await axios.post(`${ValidationHelper.API_BASE()}/create-cart/${id}`)
+    }
+    
+    
+    
     return (
         <div>
             {data===null?(<FullscreenLoader/>):(
@@ -39,10 +47,15 @@ console.log(data)
                                               <div className={"card justify-content-center align-items-center"}>
                                                   <img src={item["image"]} height={"200px"} width={"200px"}/>
                                                   <h6>{item["title"]}</h6>
+
                                                   <p>{item["short_des"]}</p>
-                                                  <p> Price  {item["price"]}</p>
-                                                  <p> Discount Price :   {item["discount_price"]}</p>
-                                                  {item["remark"]==="new"?(<p className="text-bg-primary">{item["remark"]}</p>):(<p className="text-bg-warning">{item["remark"]}</p>)}
+                                                  <p> Price {item["price"]}</p>
+                                                  <p> Discount Price : {item["discount_price"]}</p>
+                                                  {item["remark"] === "new" ? (
+                                                      <p className="text-bg-primary">{item["remark"]}</p>) : (
+                                                      <p className="text-bg-warning">{item["remark"]}</p>)}
+
+                                                  <input onClick={()=>{addtocart(item["id"])}} className="btn btn-primary" />
                                               </div>
 
                                           </div>

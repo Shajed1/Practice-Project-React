@@ -1,0 +1,11 @@
+
+
+const ButtonSpinner = () => {
+    return (
+        <div className="spinner-border spinner-border-sm text-light " role="status">
+
+        </div>
+    );
+};
+
+export default ButtonSpinner;

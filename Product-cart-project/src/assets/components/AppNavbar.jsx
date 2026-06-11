@@ -1,9 +1,15 @@
 import {Container, Nav, Navbar} from "react-bootstrap";
-import ValidationHelper from "../../utility/ValidationHelper.js";
-import {NavLink} from "react-router-dom";
+
+import {Link, NavLink} from "react-router-dom";
 import logo from "../images/shopping-logo.svg"
+import ValidationHelper from "../../utility/ValidationHelper.js";
 
 const AppNavbar = () => {
+
+ const logout = () => {
+   sessionStorage.clear();
+   window.location.href = "/";
+ }
     return (
         <Navbar expand="lg" className="bg-body-tertiary ">
             <Container fluid>
@@ -22,7 +28,8 @@ const AppNavbar = () => {
 
                     </Nav>
                     {
-                        ValidationHelper.islogin()?(<button className={"btn btn-success"}>Logout</button>):(<button className={"btn btn-success"}>Login</button>)
+                        ValidationHelper.islogin()?(<button onClick={logout} className={"btn btn-success"}>Logout</button>):
+                            (<Link to="/login" className={"btn btn-success"}>Login</Link>)
                     }
 
 
