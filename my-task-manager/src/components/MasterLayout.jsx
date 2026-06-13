@@ -1,6 +1,7 @@
 
 import AppFooter from "./AppFooter.jsx";
 import AppNavbar from "./AppNavbar.jsx";
+import { Toaster } from "react-hot-toast";
 
 
 const MasterLayout = (props) => {
@@ -9,6 +10,7 @@ const MasterLayout = (props) => {
             <AppNavbar/>
             {props.children}
             <AppFooter/>
+            <Toaster position="bottom-center"/>
         </div>
     );
 };

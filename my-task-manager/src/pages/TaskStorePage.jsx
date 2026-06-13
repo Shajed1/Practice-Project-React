@@ -1,10 +1,12 @@
+import MasterLayout from "../components/MasterLayout";
+import TaskStore from "../components/TaskStore";
 
 
 const TaskStorePage = () => {
     return (
-        <div>
-
-        </div>
+          <MasterLayout>
+           <TaskStore/>
+          </MasterLayout>
     );
 };
 

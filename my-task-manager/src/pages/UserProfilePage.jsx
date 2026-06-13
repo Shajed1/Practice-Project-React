@@ -1,11 +1,16 @@
 
+import UserProfilePage from "../components/UserProfile";
+import MasterLayout from "../components/MasterLayout";
 
-const UserProfilePage = () => {
+
+const UserProfile = () => {
     return (
         <div>
-
+            <MasterLayout>
+                <UserProfilePage/>
+            </MasterLayout>
         </div>
     );
 };
 
-export default UserProfilePage;
+export default UserProfile;
