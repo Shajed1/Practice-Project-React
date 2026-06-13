@@ -1,10 +1,12 @@
+import MasterLayout from "../components/MasterLayout.jsx";
+import UserLogin from "../components/UserLogin.jsx";
 
 
 const UserLoginPage = () => {
     return (
-        <div>
-
-        </div>
+         <MasterLayout>
+             <UserLogin/>
+         </MasterLayout>
     );
 };
 

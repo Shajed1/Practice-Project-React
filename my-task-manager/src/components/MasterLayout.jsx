@@ -1,11 +1,14 @@
-import AppNabvar from "./AppNabvar.jsx";
+
+import AppFooter from "./AppFooter.jsx";
+import AppNavbar from "./AppNavbar.jsx";
 
 
 const MasterLayout = (props) => {
     return (
         <div>
-            <AppNabvar/>
+            <AppNavbar/>
             {props.children}
+            <AppFooter/>
         </div>
     );
 };

@@ -1,10 +1,12 @@
+import MasterLayout from "../components/MasterLayout";
+import UserRegestration from "../components/UserRegestration";
 
 
 const UserRegestrationPage = () => {
     return (
-        <div>
-
-        </div>
+         <MasterLayout>
+            <UserRegestration/>
+         </MasterLayout>
     );
 };
 

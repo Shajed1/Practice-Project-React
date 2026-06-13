@@ -25,6 +25,7 @@ const App = () => {
         return (
             <BrowserRouter>
                 <Routes>
+                    <Route path="/" element={<TaskCreatePage/>} />
                     <Route path="/registration" element={<UserRegestrationPage/>} />
                     <Route path="/login" element={<UserLoginPage/>}/>
                     <Route path="/verify" element={<VerifyMailPage/>} />
