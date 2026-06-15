@@ -18,6 +18,8 @@ const App = () => {
                     <Route path="/" element={<TaskCreatePage/>} />
                     <Route path="/storetask" element={<TaskStorePage/>} />
                     <Route path="/profile" element={<UserProfilePage/>} />
+                     <Route path="/verify" element={<VerifyMailPage/>} />
+                    <Route path="/Otpverify" element={<VerifyOtpPage/>} />
                 </Routes>
             </BrowserRouter>
         );
@@ -28,8 +30,7 @@ const App = () => {
                     <Route path="/" element={<TaskCreatePage/>} />
                     <Route path="/registration" element={<UserRegestrationPage/>} />
                     <Route path="/login" element={<UserLoginPage/>}/>
-                    <Route path="/verify" element={<VerifyMailPage/>} />
-                    <Route path="/Otpverify" element={<VerifyOtpPage/>} />
+
                 </Routes>
             </BrowserRouter>
         );

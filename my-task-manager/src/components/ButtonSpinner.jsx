@@ -1,11 +1,13 @@
-
-
 const ButtonSpinner = () => {
-    return (
-        <div>
-            <div className="spinner-border spinner-border-sm text-light " role="status"></div>
-        </div>
-    );
+  return (
+    <button className="btn btn-primary w-100" disabled>
+      <span
+        className="spinner-border spinner-border-sm me-2"
+        role="status"
+      ></span>
+
+    </button>
+  );
 };
 
 export default ButtonSpinner;

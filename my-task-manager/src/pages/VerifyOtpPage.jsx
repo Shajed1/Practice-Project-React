@@ -1,10 +1,12 @@
+import MasterLayout from "../components/MasterLayout";
+import VerifyOtp from "../components/VerifyOtp";
 
 
 const VerifyOtpPage = () => {
     return (
-        <div>
-
-        </div>
+          <MasterLayout>
+            <VerifyOtp/>
+          </MasterLayout>
     );
 };
 

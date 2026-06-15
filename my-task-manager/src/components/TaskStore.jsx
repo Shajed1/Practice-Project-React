@@ -62,7 +62,7 @@ const TaskStore = () => {
   // UPDATE TASK
 const updateTask = async (id) => {
   try {
-    await axios.put(
+    await axios.post(
       `${Helper.BASE_API()}/updateTask/${id}`,
       formData,
       {
@@ -72,7 +72,7 @@ const updateTask = async (id) => {
       }
     );
 
-    alert("Task Updated");
+      toast.success("Task Updated");
     setEditId(null);
     loadTasks(); // আবার reload করে show করবে
 
@@ -87,7 +87,7 @@ const updateTask = async (id) => {
     try {
       const newStatus = task.status === "pending" ? "completed" : "pending";
 
-      const res = await axios.put(
+      const res = await axios.post(
         `${Helper.BASE_API()}/updateTask/${task._id}`,
         { ...task, status: newStatus },
         {
@@ -102,11 +102,28 @@ const updateTask = async (id) => {
 
     } catch (error) {
       toast.error("Status Update Failed");
+      console.log(error);
     }
   };
+// Delete task 
+const deletetask= async (id) => {
+  try {
+    const res = await axios.delete(
+      `${Helper.BASE_API()}/taskdelete/${id}`,
+      {
+        headers: { token }
+      }
+    );
+    toast.success("Task Deleted");
+    loadTasks();
+  } catch (error) {
+    toast.error("Delete Failed");
+    console.log(error);
+  }
+}
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-3">
 
       <h3 className="text-center fw-bold text-primary mb-4">
         Your Task Board
@@ -135,7 +152,7 @@ const updateTask = async (id) => {
 
                     <Form.Control
                       as="textarea"
-                      rows={3}
+                      rows={2}
                       className="mb-2"
                       name="description"
                       value={formData.description}
@@ -198,7 +215,13 @@ const updateTask = async (id) => {
                           ? "Mark Complete"
                           : "Reopen"}
                       </Button>
-
+                                           <Button
+                        size="sm"
+                        variant="danger"
+                        onClick={() => deletetask(task._id)}
+                      >
+                        Delete
+                      </Button>
                     </div>
                   </>
                 )}

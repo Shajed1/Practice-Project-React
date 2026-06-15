@@ -39,6 +39,7 @@ const handleSubmit = async (e) => {
       e.target.reset();
     } else {
       toast.error("Task Creation Failed!");
+      console.log(res.data.message);
     }
 
   } catch (error) {

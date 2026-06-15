@@ -17,7 +17,7 @@ class ValidationHelper {
         return "https://cart-api.teamrabbil.com/api"
     }
     static API_BASE_two(){
-        return "http://localhost:5090/api"
+        return "http://localhost:5000/api"
     }
 }
 

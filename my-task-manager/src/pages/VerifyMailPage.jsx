@@ -1,10 +1,12 @@
+import VerifyMail from "../components/VerifyMail";
+import MasterLayout from './../components/MasterLayout';
 
 
 const VerifyMailPage = () => {
     return (
-        <div>
-
-        </div>
+           <MasterLayout>
+            <VerifyMail/>
+           </MasterLayout>
     );
 };
 
