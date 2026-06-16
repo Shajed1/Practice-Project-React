@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const UserProfilePage = () => {
   const [user, setUser] = useState({});
  const token=localStorage.getItem("token");
+const TheOtp=localStorage.getItem("otp")
+
   const userShow = async ()=>{
     try {
       const users = await axios.get(
@@ -57,10 +59,8 @@ const UserProfilePage = () => {
                 <strong>Email:</strong>
                 <div className="d-flex align-items-center gap-2 mt-1">
                   <span>{user?.email}</span>
-
-                  <Badge bg="danger">
-                    Unverified
-                  </Badge>
+                  {TheOtp>0?(<Badge bg="success">Verified</Badge>):(<Badge bg="danger">Unverified</Badge>)}
+                  
 
 <Link
   to="/verify"
@@ -76,12 +76,14 @@ const UserProfilePage = () => {
                 <p className="mb-0">{user?.mobile}</p>
               </div>
 
-              <div className="d-grid gap-2">
-                <Button variant="primary">
-                  Update Password
-                </Button>
-
-              </div>
+<div className="d-grid mt-3">
+  <Link
+    to="/passwordreset"
+    className="btn btn-outline-primary rounded-pill fw-semibold py-2"
+  >
+    Update Password →
+  </Link>
+</div>
 
             </Card.Body>
           </Card>

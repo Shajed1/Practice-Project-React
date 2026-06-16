@@ -3,9 +3,11 @@ import axios from "axios";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import Helper from "./../utility/Helper";
 import toast from "react-hot-toast";
+import WholeSpinner from "./WholeSpinner";
 
 const TaskStore = () => {
 
+const [loading, setLoading] = useState(true);
   const [tasks, setTasks] = useState([]);
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState({
@@ -21,6 +23,7 @@ const TaskStore = () => {
 
   // GET TASKS
   const loadTasks = async () => {
+    setLoading(true)
     try {
       const res = await axios.get(
         `${Helper.BASE_API()}/taskread`,
@@ -30,16 +33,26 @@ const TaskStore = () => {
       );
 
       if (res.data.status === "success") {
+        
         setTasks(res.data.data);
+   
       }
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false)
     }
-  };
 
-  useEffect(() => {
-    loadTasks();
-  }, []);
+
+  };   
+  
+
+    useEffect(()=>{
+        (async ()=>{
+            await loadTasks()
+
+        })()
+    },[])
 
   // START EDIT
   const startEdit = (task) => {
@@ -50,7 +63,6 @@ const TaskStore = () => {
       status: task.status
     });
   };
-
   // HANDLE INPUT
   const handleChange = (e) => {
     setFormData({
@@ -121,9 +133,12 @@ const deletetask= async (id) => {
     console.log(error);
   }
 }
-
+if(loading){
+    return <WholeSpinner/>
+}else{
   return (
-    <Container className="mt-3">
+   
+   <Container className="mt-3">
 
       <h3 className="text-center fw-bold text-primary mb-4">
         Your Task Board
@@ -233,6 +248,7 @@ const deletetask= async (id) => {
       </Row>
     </Container>
   );
+  }
 };
 
 export default TaskStore;

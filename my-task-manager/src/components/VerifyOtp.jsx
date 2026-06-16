@@ -5,10 +5,11 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import ButtonSpinner from "./ButtonSpinner";
 import Helper from './../utility/Helper';
+import {useNavigate} from "react-router-dom";
 
 const VerifyOtp = () => {
    
-
+const navigate=useNavigate()
 
     let [submitted, setSubmitted] = useState(false);
 
@@ -17,13 +18,15 @@ const VerifyOtp = () => {
         let formData = new FormData(e.target);
         let otp=formData.get('otp');
 
-            let Email=sessionStorage.getItem('Email');
+            let Email=localStorage.getItem('Email');
             setSubmitted(true)
             let res= await axios.get(`${Helper.BASE_API()}/RecoververifyOTP/${Email}/${otp}`)
 
             setSubmitted(false)
             if (res.data['status']==="success"){
                 toast.success(res.data['massage']);
+                localStorage.setItem("otp",otp)
+                navigate("/profile")
             }else{
                 toast.error('request Failed!');
 

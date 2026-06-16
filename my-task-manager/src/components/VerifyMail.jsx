@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import ButtonSpinner from "./ButtonSpinner";
 import Helper from "./../utility/Helper";
 
+
 const VerifyMail = () => {
   const [submitted, setSubmitted] = useState(false);
 const navigate = useNavigate();
@@ -24,7 +25,7 @@ const navigate = useNavigate();
 
       if (res.data.status === "success") {
         toast.success(res.data.message || "OTP sent successfully");
-        sessionStorage.setItem("Email", email);
+        localStorage.setItem("Email", email);
         navigate("/Otpverify")
       } else {
         toast.error("Request failed!");

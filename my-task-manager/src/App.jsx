@@ -7,6 +7,7 @@ import UserRegestrationPage from "./pages/UserRegestrationPage.jsx";
 import VerifyMailPage from "./pages/VerifyMailPage.jsx";
 import VerifyOtpPage from "./pages/VerifyOtpPage.jsx";
 import Helper from "./utility/Helper.js";
+import PasswordResetPage from "./pages/PasswordResetPage.jsx";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                     <Route path="/profile" element={<UserProfilePage/>} />
                      <Route path="/verify" element={<VerifyMailPage/>} />
                     <Route path="/Otpverify" element={<VerifyOtpPage/>} />
+                    <Route path="/passwordreset" element={<PasswordResetPage/>} />
                 </Routes>
             </BrowserRouter>
         );

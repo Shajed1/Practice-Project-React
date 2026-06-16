@@ -11,8 +11,10 @@ class Helper {
     localStorage.setItem("token", token);
   }
 
+
   static logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("otp");
   }
 
   static BASE_API() {
